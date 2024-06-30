@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "761040881366",
+    "project_id": "capp-32a9b",
+    "storage_bucket": "capp-32a9b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:761040881366:android:601490b5e793bd9dae6b77",
+        "android_client_info": {
+          "package_name": "com.example.cerdo_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "761040881366-vlcgo8o8imlit7kdvciumod1jlr5hm09.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cerdo_app",
+            "certificate_hash": "8617d4a6f404bf76afe7e91a920883d53a49570f"
+          }
+        },
+        {
+          "client_id": "761040881366-u7n9qhb8god8s3p545fijmqk9ksc3umb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZu8kHNsWDdBgq7_Jmffjru6t2_1YLl3k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "761040881366-u7n9qhb8god8s3p545fijmqk9ksc3umb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
