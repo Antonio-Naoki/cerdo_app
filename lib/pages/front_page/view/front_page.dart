@@ -48,36 +48,36 @@ class _FrontPageState extends State<FrontPage> {
                   style: AppTextStyle.text36W600TextStyle,
                 ),
               ),
-              Container(
-                height: ratioCalculator.calculateHeight(62),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  border: Border.all(
-                    color: AppColors.inputLoginColor,
-                    width: 2.0,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPage()),
+                  );
+                },
+                child: Container(
+                  height: ratioCalculator.calculateHeight(62),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(
+                      color: AppColors.inputLoginColor,
+                      width: 2.0,
+                    ),
                   ),
-                ),
-                margin: EdgeInsets.only(
-                  left: ratioCalculator.calculateWidth(43),
-                  right: ratioCalculator.calculateWidth(47),
-                  bottom: ratioCalculator.calculateHeight(14),
-                ),
-                child: ButtonBar(
-                  alignment: MainAxisAlignment.center,
-                  children: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => LoginPage()),
-                        );
-                      },
-                      child: const Text(
+                  margin: EdgeInsets.only(
+                    left: ratioCalculator.calculateWidth(43),
+                    right: ratioCalculator.calculateWidth(47),
+                    bottom: ratioCalculator.calculateHeight(14),
+                  ),
+                  child: ButtonBar(
+                    alignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
                         "Ingresar",
                         style: AppTextStyle.text25W600InputTextStyle,
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               Container(

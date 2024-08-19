@@ -159,38 +159,37 @@ class _LoginPageState extends State<LoginPage> {
                   style: AppTextStyle.text13W600InputTextStyle,
                 ).animate().fade(duration: 500.ms).scale(delay: 500.ms),
               ),
-              Container(
-                  height: ratioCalculator.calculateHeight(57),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    border: Border.all(
-                      color: AppColors.inputLoginColor,
-                      width: 2.0,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomePage()),
+                  );
+                },
+                child: Container(
+                    height: ratioCalculator.calculateHeight(57),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      border: Border.all(
+                        color: AppColors.inputLoginColor,
+                        width: 2.0,
+                      ),
                     ),
-                  ),
-                  margin: EdgeInsets.only(
-                    top: ratioCalculator.calculateHeight(61),
-                    left: ratioCalculator.calculateWidth(43),
-                    right: ratioCalculator.calculateWidth(47),
-                  ),
-                  child: ButtonBar(
-                    alignment: MainAxisAlignment.center,
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => HomePage()),
-                          );
-                        },
-                        child: const Text(
+                    margin: EdgeInsets.only(
+                      top: ratioCalculator.calculateHeight(61),
+                      left: ratioCalculator.calculateWidth(43),
+                      right: ratioCalculator.calculateWidth(47),
+                    ),
+                    child: ButtonBar(
+                      alignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
                           "Ingresar",
                           style: AppTextStyle.text25W600InputTextStyle,
                         ),
-                      ),
-                    ],
-                  )).animate().fade(duration: 500.ms).scale(delay: 500.ms),
+                      ],
+                    )).animate().fade(duration: 500.ms).scale(delay: 500.ms),
+              ),
               const SizedBox(
                 height: 15,
               ),
