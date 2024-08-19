@@ -189,7 +189,7 @@ class _LoginPageState extends State<LoginPage> {
                 size: 44.0,
                 color: AppColors.inputLoginColor,
                 // controller.state.hasCredentials ? Colors.white : Colors.red,
-              ),
+              ).animate().fade(duration: 500.ms).scale(delay: 500.ms),
             ],
           ),
         ),

@@ -7,4 +7,5 @@ class AppColors {
   static const Color inputLoginColor = Color(0xffFFE500);
   static const Color iconInputLoginColor = Color(0xffFDD85D);
   static const Color textFrontColor = Color(0xff635BFF);
+  static const Color containerColor = Color(0xffD0D0D0);
 }
