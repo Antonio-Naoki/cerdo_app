@@ -47,4 +47,9 @@ class AppTextStyle {
       fontSize: 29,
       fontWeight: FontWeight.w600,
       color: AppColors.textTitleColor);
+  static const text25W600TextStyle = TextStyle(
+      fontFamily: 'JosefinSans',
+      fontSize: 25,
+      fontWeight: FontWeight.w600,
+      color: AppColors.textHomeColor);
 }

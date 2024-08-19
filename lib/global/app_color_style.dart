@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
+  static const Color textHomeColor = Color(0xffffffff);
   static const Color textMiniLoginColor = Color(0xff6A7383);
   static const Color textTitleColor = Color(0xff30313D);
   static const Color textColor = Color(0xff6A7383);

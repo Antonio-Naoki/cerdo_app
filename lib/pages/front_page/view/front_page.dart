@@ -66,17 +66,17 @@ class _FrontPageState extends State<FrontPage> {
                   alignment: MainAxisAlignment.center,
                   children: [
                     TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => LoginPage()),
-                          );
-                        },
-                        child: const Text(
-                          "Ingresar",
-                          style: AppTextStyle.text25W600InputTextStyle,
-                        )),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginPage()),
+                        );
+                      },
+                      child: const Text(
+                        "Ingresar",
+                        style: AppTextStyle.text25W600InputTextStyle,
+                      ),
+                    ),
                   ],
                 ),
               ),

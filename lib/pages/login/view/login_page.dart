@@ -1,6 +1,7 @@
 import 'package:cerdo_app/global/app_color_style.dart';
 import 'package:cerdo_app/global/app_text_style.dart';
 import 'package:cerdo_app/global/ratio_calculator.dart';
+import 'package:cerdo_app/pages/home/view/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
@@ -172,12 +173,21 @@ class _LoginPageState extends State<LoginPage> {
                     left: ratioCalculator.calculateWidth(43),
                     right: ratioCalculator.calculateWidth(47),
                   ),
-                  child: const ButtonBar(
+                  child: ButtonBar(
                     alignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        "Ingresar",
-                        style: AppTextStyle.text25W600InputTextStyle,
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HomePage()),
+                          );
+                        },
+                        child: const Text(
+                          "Ingresar",
+                          style: AppTextStyle.text25W600InputTextStyle,
+                        ),
                       ),
                     ],
                   )).animate().fade(duration: 500.ms).scale(delay: 500.ms),
