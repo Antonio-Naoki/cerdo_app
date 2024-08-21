@@ -39,12 +39,12 @@ class _FrontPageState extends State<FrontPage> {
               ),
               Container(
                 margin: EdgeInsets.only(
-                  left: ratioCalculator.calculateWidth(85),
-                  right: ratioCalculator.calculateWidth(86),
+                  left: ratioCalculator.calculateWidth(72),
+                  right: ratioCalculator.calculateWidth(72),
                   bottom: ratioCalculator.calculateHeight(140),
                 ),
                 child: Text(
-                  "Bienvenido",
+                  "Comenzamos",
                   style: AppTextStyle.text36W600TextStyle,
                 ),
               ),

@@ -52,4 +52,9 @@ class AppTextStyle {
       fontSize: 25,
       fontWeight: FontWeight.w600,
       color: AppColors.textHomeColor);
+  static const text20tW600InputTextStyle = TextStyle(
+      fontFamily: 'JosefinSans',
+      fontSize: 20,
+      fontWeight: FontWeight.w600,
+      color: AppColors.textMiniLoginColor);
 }

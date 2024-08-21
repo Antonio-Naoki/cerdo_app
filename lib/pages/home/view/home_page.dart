@@ -1,6 +1,7 @@
 import 'package:cerdo_app/global/app_color_style.dart';
 import 'package:cerdo_app/global/app_text_style.dart';
 import 'package:cerdo_app/global/ratio_calculator.dart';
+import 'package:cerdo_app/pages/pesaje/view/pesaje_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -37,41 +38,49 @@ class _HomePageState extends State<HomePage> {
                     bottom: ratioCalculator.calculateHeight(103),
                   ),
                   child: Text(
-                    "Bienvenido",
+                    "Hola 👋",
                     style: AppTextStyle.text36W600TextStyle,
                   ),
                 ),
                 Divider(),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(14),
-                    color: AppColors.textFrontColor,
-                  ),
-                  margin: EdgeInsets.only(
-                    left: ratioCalculator.calculateWidth(16),
-                    right: ratioCalculator.calculateWidth(15),
-                    top: ratioCalculator.calculateHeight(16),
-                    bottom: ratioCalculator.calculateHeight(14),
-                  ),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const PesajePage()),
+                  );
+                  },
                   child: Container(
-                    margin: EdgeInsets.only(
-                      left: ratioCalculator.calculateWidth(130),
-                      right: ratioCalculator.calculateWidth(130),
-                      top: ratioCalculator.calculateHeight(12),
-                      bottom: ratioCalculator.calculateHeight(12),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(14),
+                      color: AppColors.textFrontColor,
                     ),
-                    child: Column(
-                      children: [
-                        Text(
-                          "Pesaje",
-                          style: AppTextStyle.text25W600TextStyle,
-                        ),
-                        Icon(
-                          Icons.balance,
-                          size: 31,
-                          color: AppColors.textHomeColor,
-                        ),
-                      ],
+                    margin: EdgeInsets.only(
+                      left: ratioCalculator.calculateWidth(16),
+                      right: ratioCalculator.calculateWidth(15),
+                      top: ratioCalculator.calculateHeight(16),
+                      bottom: ratioCalculator.calculateHeight(14),
+                    ),
+                    child: Container(
+                      margin: EdgeInsets.only(
+                        left: ratioCalculator.calculateWidth(130),
+                        right: ratioCalculator.calculateWidth(130),
+                        top: ratioCalculator.calculateHeight(12),
+                        bottom: ratioCalculator.calculateHeight(12),
+                      ),
+                      child: Column(
+                        children: [
+                          Text(
+                            "Pesaje",
+                            style: AppTextStyle.text25W600TextStyle,
+                          ),
+                          Icon(
+                            Icons.balance,
+                            size: 31,
+                            color: AppColors.textHomeColor,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
