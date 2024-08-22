@@ -50,13 +50,13 @@ class _PesajePageState extends State<PesajePage> {
                 ],
               ),
               SizedBox(
-                height: ratioCalculator.calculateHeight(42),
+                height: ratioCalculator.calculateHeight(28),
               ),
               Container(
                 margin: EdgeInsets.only(
                   left: ratioCalculator.calculateWidth(13),
                   right: ratioCalculator.calculateWidth(98),
-                  bottom: ratioCalculator.calculateWidth(54),
+                  bottom: ratioCalculator.calculateWidth(24),
                 ),
                 child: DropdownButtonFormField(
                   decoration: InputDecoration(
