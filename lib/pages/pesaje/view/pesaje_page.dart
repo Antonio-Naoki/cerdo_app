@@ -11,11 +11,21 @@ class PesajePage extends StatefulWidget {
   State<PesajePage> createState() => _PesajePageState();
 }
 
-final List<String> items = ['Cerdo', 'Bovino', 'Caballo', 'Caprino', 'Conejo', 'Ave de corral'];
+final List<String> items = [
+  'Cerdo',
+  'Bovino',
+  'Caballo',
+  'Caprino',
+  'Conejo',
+  'Ave de corral'
+];
 String? selectedValue;
 
 class _PesajePageState extends State<PesajePage> {
   final RatioCalculator ratioCalculator = RatioCalculator();
+  double anchoCorazon = 0.0;
+  double largoCerdo = 0.0;
+  double pesoEstimado = 0.0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +37,7 @@ class _PesajePageState extends State<PesajePage> {
                 children: [
                   Container(
                     margin: EdgeInsets.only(
-                      top: ratioCalculator.calculateHeight(76),
+                      top: ratioCalculator.calculateHeight(46),
                       left: ratioCalculator.calculateWidth(13),
                     ),
                     child: Text(
@@ -38,7 +48,7 @@ class _PesajePageState extends State<PesajePage> {
                   Spacer(),
                   Container(
                     margin: EdgeInsets.only(
-                      top: ratioCalculator.calculateHeight(71),
+                      top: ratioCalculator.calculateHeight(41),
                       right: ratioCalculator.calculateWidth(15),
                     ),
                     child: Icon(
@@ -140,7 +150,7 @@ class _PesajePageState extends State<PesajePage> {
                               right: ratioCalculator.calculateWidth(25),
                             ),
                             child: Text(
-                              "103",
+                              "---",
                               style:
                                   AppTextStyle.text20tW600TitleBlackTextStyle,
                             ),
@@ -211,7 +221,7 @@ class _PesajePageState extends State<PesajePage> {
                               right: ratioCalculator.calculateWidth(25),
                             ),
                             child: Text(
-                              "103",
+                              "---",
                               style:
                                   AppTextStyle.text20tW600TitleBlackTextStyle,
                             ),
@@ -244,11 +254,153 @@ class _PesajePageState extends State<PesajePage> {
                   style: AppTextStyle.text20tW600TitleTextStyle,
                 ),
               ),
+              Row(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(
+                      left: ratioCalculator.calculateWidth(13),
+                    ),
+                    child: Text(
+                      "Animal",
+                      style: AppTextStyle.text20tW600TitleTextStyle,
+                    ),
+                  ),
+                  Spacer(),
+                  Container(
+                    margin: EdgeInsets.only(
+                      right: ratioCalculator.calculateWidth(15),
+                    ),
+                    child: Text(
+                      "vaca",
+                      style: AppTextStyle.text20tW600TitleTextStyle,
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(
+                      top: ratioCalculator.calculateHeight(11),
+                      left: ratioCalculator.calculateWidth(13),
+                    ),
+                    child: Text(
+                      "Nombre",
+                      style: AppTextStyle.text20tW600TitleTextStyle,
+                    ),
+                  ),
+                  Spacer(),
+                  Container(
+                    margin: EdgeInsets.only(
+                      right: ratioCalculator.calculateWidth(15),
+                    ),
+                    child: Text(
+                      "Luna",
+                      style: AppTextStyle.text20tW600TitleTextStyle,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: ratioCalculator.calculateHeight(5),
+              ),
+              Divider(
+                color: AppColors.textTitleColor,
+                thickness: 2,
+                indent: 100.0,
+                endIndent: 100.0,
+              ),
+              Row(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(
+                      top: ratioCalculator.calculateHeight(11),
+                      left: ratioCalculator.calculateWidth(13),
+                    ),
+                    child: Text(
+                      "Total",
+                      style: AppTextStyle.text32W600TextStyle,
+                    ),
+                  ),
+                  Spacer(),
+                  Container(
+                    margin: EdgeInsets.only(
+                      right: ratioCalculator.calculateWidth(15),
+                    ),
+                    child: Text(
+                      "Kgs: ${pesoEstimado == 0.0 ? '0.00' : pesoEstimado.toStringAsFixed(2)}",
+                      style: AppTextStyle.text20tW600TitleTextStyle,
+                    ),
+                  ),
+                ],
+              ),
               Divider(),
+              Container(
+                margin: EdgeInsets.only(
+                  top: ratioCalculator.calculateHeight(8),
+                  left: ratioCalculator.calculateWidth(15),
+                  right: ratioCalculator.calculateWidth(15),
+                ),
+                child: Column(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        if (selectedValue == "Cerdo") {
+                          double peso =
+                              calcularPesoCerdo(anchoCorazon, largoCerdo);
+                          setState(() {
+                            pesoEstimado = peso;
+                          });
+                        } else {
+                          print("¡Selecciona un cerdo para calcular el peso!");
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.textFrontColor,
+                        minimumSize: Size(300, 50),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                      ),
+                      child: const Text(
+                        "Calcular",
+                        style: AppTextStyle.text30W600TextTextStyle,
+                      ),
+                    ),
+                    SizedBox(
+                      height: ratioCalculator.calculateHeight(10),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.textFrontColor,
+                        minimumSize: Size(300, 50),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                      ),
+                      child: const Text(
+                        "Descargar",
+                        style: AppTextStyle.text30W600TextTextStyle,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
       ),
     );
   }
+}
+
+double calcularPesoCerdo(double anchoCorazon, double largoCerdo) {
+  // Elevamos al cuadrado la anchura del corazón
+  double anchuraResultante = anchoCorazon * anchoCorazon;
+
+  // Multiplicamos la anchura resultante por el largo del cerdo y por la constante 69.3
+  double peso = anchuraResultante * largoCerdo * 69.3;
+
+  return peso;
 }
