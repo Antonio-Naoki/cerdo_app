@@ -57,4 +57,19 @@ class AppTextStyle {
       fontSize: 20,
       fontWeight: FontWeight.w600,
       color: AppColors.textMiniLoginColor);
+  static const text20tW600TitleTextStyle = TextStyle(
+      fontFamily: 'JosefinSans',
+      fontSize: 20,
+      fontWeight: FontWeight.w600,
+      color: AppColors.textTitleHomeColor);
+  static const text20tW600TitleBlackTextStyle = TextStyle(
+      fontFamily: 'JosefinSans',
+      fontSize: 20,
+      fontWeight: FontWeight.w600,
+      color: Colors.black);
+  static const text18W600TextTextStyle = TextStyle(
+      fontFamily: 'JosefinSans',
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+      color: AppColors.textHomeColor);
 }
