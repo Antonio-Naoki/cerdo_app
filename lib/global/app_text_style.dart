@@ -69,7 +69,7 @@ class AppTextStyle {
       color: Colors.black);
   static const text18W600TextTextStyle = TextStyle(
       fontFamily: 'JosefinSans',
-      fontSize: 16,
+      fontSize: 18,
       fontWeight: FontWeight.w600,
       color: AppColors.textHomeColor);
   static const text32W600TextStyle = TextStyle(
@@ -82,4 +82,9 @@ class AppTextStyle {
       fontSize: 30,
       fontWeight: FontWeight.w600,
       color: AppColors.textHomeColor);
+  static const text16W600TextInputTextStyle = TextStyle(
+      fontFamily: 'JosefinSans',
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+      color: Colors.black);
 }

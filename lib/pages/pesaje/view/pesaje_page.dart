@@ -1,6 +1,7 @@
 import 'package:cerdo_app/global/app_color_style.dart';
 import 'package:cerdo_app/global/app_text_style.dart';
 import 'package:cerdo_app/global/ratio_calculator.dart';
+import 'package:cerdo_app/pages/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -23,9 +24,12 @@ String? selectedValue;
 
 class _PesajePageState extends State<PesajePage> {
   final RatioCalculator ratioCalculator = RatioCalculator();
-  double anchoCorazon = 0.0;
-  double largoCerdo = 0.0;
+  double perimetroToracico = 0.0;
+  double longitudCuerpo = 0.0;
   double pesoEstimado = 0.0;
+  // double perimetroToracico = 0.0;
+  // double longitudCuerpo = 0.0;
+  double peso = 0.0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -143,16 +147,25 @@ class _PesajePageState extends State<PesajePage> {
                             ),
                           ),
                           child: Container(
+                            width: 40,
                             margin: EdgeInsets.only(
-                              top: ratioCalculator.calculateHeight(15),
-                              bottom: ratioCalculator.calculateHeight(15),
-                              left: ratioCalculator.calculateWidth(20),
-                              right: ratioCalculator.calculateWidth(25),
+                              left: ratioCalculator.calculateWidth(10),
+                              right: ratioCalculator.calculateWidth(10),
                             ),
-                            child: Text(
-                              "---",
-                              style:
-                                  AppTextStyle.text20tW600TitleBlackTextStyle,
+                            child: TextFormField(
+                              keyboardType: TextInputType.number,
+                              onChanged: (value) {
+                                setState(() {
+                                  perimetroToracico =
+                                      double.tryParse(value) ?? 0.0;
+                                });
+                              },
+                              decoration: InputDecoration(
+                                hintText: '---',
+                                border: InputBorder.none,
+                              ),
+                              style: AppTextStyle.text16W600TextInputTextStyle,
+                              textAlign: TextAlign.center,
                             ),
                           ),
                         ),
@@ -214,16 +227,25 @@ class _PesajePageState extends State<PesajePage> {
                             ),
                           ),
                           child: Container(
+                            width: 40,
                             margin: EdgeInsets.only(
-                              top: ratioCalculator.calculateHeight(15),
-                              bottom: ratioCalculator.calculateHeight(15),
-                              left: ratioCalculator.calculateWidth(20),
-                              right: ratioCalculator.calculateWidth(25),
+                              left: ratioCalculator.calculateWidth(10),
+                              right: ratioCalculator.calculateWidth(10),
                             ),
-                            child: Text(
-                              "---",
-                              style:
-                                  AppTextStyle.text20tW600TitleBlackTextStyle,
+                            child: TextFormField(
+                              keyboardType: TextInputType.number,
+                              onChanged: (value) {
+                                setState(() {
+                                  longitudCuerpo =
+                                      double.tryParse(value) ?? 0.0;
+                                });
+                              },
+                              decoration: InputDecoration(
+                                hintText: '---',
+                                border: InputBorder.none,
+                              ),
+                              style: AppTextStyle.text16W600TextInputTextStyle,
+                              textAlign: TextAlign.center,
                             ),
                           ),
                         ),
@@ -346,13 +368,19 @@ class _PesajePageState extends State<PesajePage> {
                     ElevatedButton(
                       onPressed: () {
                         if (selectedValue == "Cerdo") {
-                          double peso =
-                              calcularPesoCerdo(anchoCorazon, largoCerdo);
+                          double peso = calcularPesoCerdo(
+                              perimetroToracico, longitudCuerpo);
+                          setState(() {
+                            pesoEstimado = peso;
+                          });
+                        } else if (selectedValue == "Bovino") {
+                          peso = calcularPesoGanado(
+                              perimetroToracico, longitudCuerpo);
                           setState(() {
                             pesoEstimado = peso;
                           });
                         } else {
-                          print("¡Selecciona un cerdo para calcular el peso!");
+                          showToast("¡Selecciona un animal!");
                         }
                       },
                       style: ElevatedButton.styleFrom(
@@ -395,6 +423,7 @@ class _PesajePageState extends State<PesajePage> {
   }
 }
 
+// Formula para calcular el peso del cerdo.
 double calcularPesoCerdo(double anchoCorazon, double largoCerdo) {
   // Elevamos al cuadrado la anchura del corazón
   double anchuraResultante = anchoCorazon * anchoCorazon;
@@ -402,5 +431,13 @@ double calcularPesoCerdo(double anchoCorazon, double largoCerdo) {
   // Multiplicamos la anchura resultante por el largo del cerdo y por la constante 69.3
   double peso = anchuraResultante * largoCerdo * 69.3;
 
+  return peso;
+}
+
+// Formula para calcular el peso del ganado.
+double calcularPesoGanado(double perimetroToracico, double longitudCuerpo) {
+  // Fórmula de Schaeffer adaptada
+  double peso =
+      (perimetroToracico * perimetroToracico * longitudCuerpo) / 10838;
   return peso;
 }
