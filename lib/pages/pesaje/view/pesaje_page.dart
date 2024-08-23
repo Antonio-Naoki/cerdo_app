@@ -21,14 +21,13 @@ final List<String> items = [
   'Ave de corral'
 ];
 String? selectedValue;
+String? selectedName;
 
 class _PesajePageState extends State<PesajePage> {
   final RatioCalculator ratioCalculator = RatioCalculator();
   double perimetroToracico = 0.0;
   double longitudCuerpo = 0.0;
   double pesoEstimado = 0.0;
-  // double perimetroToracico = 0.0;
-  // double longitudCuerpo = 0.0;
   double peso = 0.0;
   @override
   Widget build(BuildContext context) {
@@ -98,6 +97,11 @@ class _PesajePageState extends State<PesajePage> {
                   bottom: ratioCalculator.calculateWidth(5),
                 ),
                 child: TextFormField(
+                  onChanged: (text) {
+                    setState(() {
+                      selectedName = text;
+                    });
+                  },
                   decoration: InputDecoration(
                     labelText: 'Nombre:',
                     labelStyle: AppTextStyle.text20tW600InputTextStyle,
@@ -293,7 +297,7 @@ class _PesajePageState extends State<PesajePage> {
                       right: ratioCalculator.calculateWidth(15),
                     ),
                     child: Text(
-                      "---",
+                      selectedValue ?? "---",
                       style: AppTextStyle.text20tW600TitleTextStyle,
                     ),
                   ),
@@ -317,7 +321,7 @@ class _PesajePageState extends State<PesajePage> {
                       right: ratioCalculator.calculateWidth(15),
                     ),
                     child: Text(
-                      "---",
+                      selectedName ?? "---",
                       style: AppTextStyle.text20tW600TitleTextStyle,
                     ),
                   ),
@@ -367,20 +371,24 @@ class _PesajePageState extends State<PesajePage> {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        if (selectedValue == "Cerdo") {
-                          double peso = calcularPesoCerdo(
-                              perimetroToracico, longitudCuerpo);
-                          setState(() {
-                            pesoEstimado = peso;
-                          });
-                        } else if (selectedValue == "Bovino") {
-                          peso = calcularPesoGanado(
-                              perimetroToracico, longitudCuerpo);
-                          setState(() {
-                            pesoEstimado = peso;
-                          });
+                        if (perimetroToracico == 0.0 && longitudCuerpo == 0.0) {
+                          showToast("¡Debes ingresar las medidas!");
                         } else {
-                          showToast("¡Selecciona un animal!");
+                          if (selectedValue == "Cerdo") {
+                            double peso = calcularPesoCerdo(
+                                perimetroToracico, longitudCuerpo);
+                            setState(() {
+                              pesoEstimado = peso;
+                            });
+                          } else if (selectedValue == "Bovino") {
+                            peso = calcularPesoGanado(
+                                perimetroToracico, longitudCuerpo);
+                            setState(() {
+                              pesoEstimado = peso;
+                            });
+                          } else {
+                            showToast("¡Selecciona un animal!");
+                          }
                         }
                       },
                       style: ElevatedButton.styleFrom(
