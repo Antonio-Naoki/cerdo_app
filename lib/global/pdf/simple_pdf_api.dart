@@ -12,7 +12,7 @@ class SimplePdfApi {
           child: Column(
             children: [
               Text(text, style: const TextStyle(fontSize: 48)),
-              Text(text, style: const TextStyle(fontSize: 48)),
+              Text(text2, style: const TextStyle(fontSize: 48)),
             ],
           ),
         ),
