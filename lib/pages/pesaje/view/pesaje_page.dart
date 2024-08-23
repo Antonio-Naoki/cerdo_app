@@ -1,5 +1,7 @@
 import 'package:cerdo_app/global/app_color_style.dart';
 import 'package:cerdo_app/global/app_text_style.dart';
+import 'package:cerdo_app/global/pdf/save_and_open_pdf.dart';
+import 'package:cerdo_app/global/pdf/simple_pdf_api.dart';
 import 'package:cerdo_app/global/ratio_calculator.dart';
 import 'package:cerdo_app/pages/utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -407,7 +409,14 @@ class _PesajePageState extends State<PesajePage> {
                       height: ratioCalculator.calculateHeight(10),
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        final simplePdfFile =
+                            await SimplePdfApi.generateSimpleTextPdf(
+                          "Resultado de peso del Animal",
+                          "Total: 0.0",
+                        );
+                        SaveAndOpenDocument.openPdf(simplePdfFile);
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.textFrontColor,
                         minimumSize: Size(300, 50),
