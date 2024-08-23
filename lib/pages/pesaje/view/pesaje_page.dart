@@ -174,7 +174,7 @@ class _PesajePageState extends State<PesajePage> {
                             right: ratioCalculator.calculateWidth(4),
                           ),
                           child: Text(
-                            "Cm",
+                            "${selectedValue == "Cerdo" ? 'Mts' : selectedValue == "Bovino" ? 'Cm' : "Cm"}",
                             style: AppTextStyle.text18W600TextTextStyle,
                           ),
                         ),
@@ -254,7 +254,7 @@ class _PesajePageState extends State<PesajePage> {
                             right: ratioCalculator.calculateWidth(4),
                           ),
                           child: Text(
-                            "Cm",
+                            "${selectedValue == "Cerdo" ? 'Mts' : selectedValue == "Bovino" ? 'Cm' : "Cm"}",
                             style: AppTextStyle.text18W600TextTextStyle,
                           ),
                         ),
@@ -293,7 +293,7 @@ class _PesajePageState extends State<PesajePage> {
                       right: ratioCalculator.calculateWidth(15),
                     ),
                     child: Text(
-                      "vaca",
+                      "---",
                       style: AppTextStyle.text20tW600TitleTextStyle,
                     ),
                   ),
@@ -317,7 +317,7 @@ class _PesajePageState extends State<PesajePage> {
                       right: ratioCalculator.calculateWidth(15),
                     ),
                     child: Text(
-                      "Luna",
+                      "---",
                       style: AppTextStyle.text20tW600TitleTextStyle,
                     ),
                   ),
