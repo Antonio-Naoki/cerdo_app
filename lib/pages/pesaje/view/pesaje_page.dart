@@ -6,6 +6,7 @@ import 'package:cerdo_app/global/ratio_calculator.dart';
 import 'package:cerdo_app/pages/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
 
 class PesajePage extends StatefulWidget {
   const PesajePage({super.key});
@@ -410,12 +411,33 @@ class _PesajePageState extends State<PesajePage> {
                     ),
                     ElevatedButton(
                       onPressed: () async {
-                        final simplePdfFile =
-                            await SimplePdfApi.generateSimpleTextPdf(
-                          "Resultado de peso del Animal",
-                          "Total: 0.0",
-                        );
-                        SaveAndOpenDocument.openPdf(simplePdfFile);
+                        if (perimetroToracico == 0.0 && longitudCuerpo == 0.0) {
+                          showToast("¡Debes ingresar las medidas!");
+                        } else {
+                          if (selectedValue != null) {
+                            if (pesoEstimado != 0.0) {
+                              DateTime time = DateTime.now();
+                              String fechaFormateada =
+                                  DateFormat('dd/MM/yyyy').format(time);
+                              NumberFormat formato = NumberFormat("0.00");
+                              String numFormat = formato.format(pesoEstimado);
+                              final simplePdfFile =
+                                  await SimplePdfApi.generateSimpleTextPdf(
+                                "Resultado del peso del ${selectedValue}",
+                                "Fecha: ${fechaFormateada}",
+                                "Nombre: ${selectedName}",
+                                "Medida de largo: ${perimetroToracico}",
+                                "Medida de ancho: ${longitudCuerpo}",
+                                "Peso: ${numFormat}",
+                              );
+                              SaveAndOpenDocument.openPdf(simplePdfFile);
+                            } else {
+                              showToast("¡Calcular primero!");
+                            }
+                          } else {
+                            showToast("¡Selecciona un animal!");
+                          }
+                        }
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.textFrontColor,
@@ -459,7 +481,7 @@ double calcularPesoGanado(double perimetroToracico, double longitudCuerpo) {
   return peso;
 }
 
-// Formula para calcular el peso de caprino. 
+// Formula para calcular el peso de caprino.
 double calcularPesoCabra(double perimetroToracico, double longitudCuerpo) {
   double peso = (perimetroToracico * perimetroToracico * longitudCuerpo) / 300;
   return peso;
