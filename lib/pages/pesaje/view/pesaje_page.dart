@@ -458,3 +458,9 @@ double calcularPesoGanado(double perimetroToracico, double longitudCuerpo) {
       (perimetroToracico * perimetroToracico * longitudCuerpo) / 10838;
   return peso;
 }
+
+// Formula para calcular el peso de caprino. 
+double calcularPesoCabra(double perimetroToracico, double longitudCuerpo) {
+  double peso = (perimetroToracico * perimetroToracico * longitudCuerpo) / 300;
+  return peso;
+}
