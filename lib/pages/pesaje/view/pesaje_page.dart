@@ -25,6 +25,7 @@ final List<String> items = [
 ];
 String? selectedValue;
 String? selectedName;
+bool _isLoading = false;
 
 class _PesajePageState extends State<PesajePage> {
   final RatioCalculator ratioCalculator = RatioCalculator();
@@ -389,6 +390,12 @@ class _PesajePageState extends State<PesajePage> {
                             setState(() {
                               pesoEstimado = peso;
                             });
+                          } else if (selectedValue == "Caprino") {
+                            peso = calcularPesoCabra(
+                                perimetroToracico, longitudCuerpo);
+                            setState(() {
+                              pesoEstimado = peso;
+                            });
                           } else {
                             showToast("¡Selecciona un animal!");
                           }
@@ -411,6 +418,9 @@ class _PesajePageState extends State<PesajePage> {
                     ),
                     ElevatedButton(
                       onPressed: () async {
+                        setState(() {
+                          _isLoading = true;
+                        });
                         if (perimetroToracico == 0.0 && longitudCuerpo == 0.0) {
                           showToast("¡Debes ingresar las medidas!");
                         } else {
@@ -438,6 +448,9 @@ class _PesajePageState extends State<PesajePage> {
                             showToast("¡Selecciona un animal!");
                           }
                         }
+                        setState(() {
+                          _isLoading = false;
+                        });
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.textFrontColor,
@@ -446,10 +459,14 @@ class _PesajePageState extends State<PesajePage> {
                           borderRadius: BorderRadius.circular(14),
                         ),
                       ),
-                      child: const Text(
-                        "Descargar",
-                        style: AppTextStyle.text30W600TextTextStyle,
-                      ),
+                      child: _isLoading
+                          ? const CircularProgressIndicator(
+                              color: AppColors.textHomeColor,
+                            )
+                          : const Text(
+                              "Descargar",
+                              style: AppTextStyle.text30W600TextTextStyle,
+                            ),
                     ),
                   ],
                 ),
@@ -469,7 +486,6 @@ double calcularPesoCerdo(double anchoCorazon, double largoCerdo) {
 
   // Multiplicamos la anchura resultante por el largo del cerdo y por la constante 69.3
   double peso = anchuraResultante * largoCerdo * 69.3;
-
   return peso;
 }
 
