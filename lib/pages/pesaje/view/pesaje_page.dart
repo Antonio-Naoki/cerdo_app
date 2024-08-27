@@ -18,10 +18,7 @@ class PesajePage extends StatefulWidget {
 final List<String> items = [
   'Cerdo',
   'Bovino',
-  'Caballo',
   'Caprino',
-  'Conejo',
-  'Ave de corral'
 ];
 String? selectedValue;
 String? selectedName;
