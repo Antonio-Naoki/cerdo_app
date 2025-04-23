@@ -1,16 +1,39 @@
-# cerdo_app
+## 📱 Pig Weight Calculator - Flutter & Firebase
+Aplicación móvil para calcular el peso de cerdos basado en sus medidas corporales (largo y ancho).
 
-A new Flutter project.
+## 📌 Descripción
+Pig Weight Calculator es una aplicación desarrollada en Flutter con Firebase que permite estimar el peso de un cerdo utilizando sus medidas corporales (longitud y circunferencia). Ideal para granjeros, veterinarios y productores porcinos que necesitan una herramienta rápida y confiable para monitorear el crecimiento de sus animales.
 
-## Getting Started
+## ✨ Características
+✅ Cálculo preciso del peso basado en fórmulas zootécnicas.
+✅ Interfaz intuitiva con diseño responsivo.
+✅ Autenticación de usuarios (Firebase Auth).
+✅ Almacenamiento en la nube (Firestore) para guardar registros históricos.
+✅ Modo offline (sincronización cuando hay conexión).
+✅ Gráficos de progreso del peso del animal.
 
-This project is a starting point for a Flutter application.
+## 🛠 Tecnologías Utilizadas
+Frontend: Flutter (Dart)
 
-A few resources to get you started if this is your first Flutter project:
+Backend: Firebase (Auth, Firestore)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Control de versiones: Git & GitHub
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📊 Fórmula Utilizada
+El peso se calcula utilizando la siguiente fórmula basada en medidas corporales:
+
+Peso (kg)
+=
+Largo (cm)
+×
+Ancho (cm)
+2
+K
+Peso (kg)= 
+K
+Largo (cm)×Ancho (cm) 
+2
+ 
+Donde 
+K
+K es un factor de corrección (varía según la raza).
