@@ -6,10 +6,15 @@ Pig Weight Calculator es una aplicación desarrollada en Flutter con Firebase qu
 
 ## ✨ Características
 ✅ Cálculo preciso del peso basado en fórmulas zootécnicas.
+
 ✅ Interfaz intuitiva con diseño responsivo.
+
 ✅ Autenticación de usuarios (Firebase Auth).
+
 ✅ Almacenamiento en la nube (Firestore) para guardar registros históricos.
+
 ✅ Modo offline (sincronización cuando hay conexión).
+
 ✅ Gráficos de progreso del peso del animal.
 
 ## 🛠 Tecnologías Utilizadas
