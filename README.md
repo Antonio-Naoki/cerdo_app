@@ -1,4 +1,4 @@
-## 📱 Pig Weight Calculator - Flutter & Firebase
+## 📱 Cerdo_App - Pig Weight Calculator - Flutter & Firebase
 Aplicación móvil para calcular el peso de cerdos basado en sus medidas corporales (largo y ancho).
 
 ## 📌 Descripción
